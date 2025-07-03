@@ -32,9 +32,6 @@ importers:
       '@prisma/client':
         specifier: ^6.10.1
         version: 6.10.1(prisma@6.10.1(typescript@5.8.3))(typescript@5.8.3)
-      circomlib:
-        specifier: ^2.0.5
-        version: 2.0.5
       circomlibjs:
         specifier: ^0.1.7
         version: 0.1.7
@@ -96,6 +93,9 @@ importers:
       '@types/supertest':
         specifier: ^6.0.2
         version: 6.0.3
+      circomlib:
+        specifier: ^2.0.5
+        version: 2.0.5
       eslint:
         specifier: ^9.18.0
         version: 9.29.0(jiti@2.4.2)

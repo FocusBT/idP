@@ -18,7 +18,6 @@ export class AuthService {
    * --------------------------------------------------------- */
   async register(dto: CreateUserDto) {
     const { secret, commitment, nonce } = await generateSecret(dto);
-
     return {
       secret:     `0x${secret.toString(16)}`,
       nonce:      `0x${nonce.toString(16)}`,

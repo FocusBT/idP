@@ -1,5 +1,49 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export class VerifyRequestDto {
-    commitment: string;         // decimal string
-    proof: any;                 // a‑b‑c object from snarkjs
-    publicSignals: string[];    // ["commitment"]
-  }
+    @ApiProperty({
+        description: 'Commitment value (decimal string)',
+        example: '5360578543298580981610616694364508704365712000716700730584261436538390710233'
+    })
+    commitment: string;
+
+    @ApiProperty({
+        description: 'ZK proof object from snarkjs with pi_a, pi_b, pi_c components',
+        example: {
+            "pi_a": [
+                "16272273635477741363430524923994398455075306173858196865619827318278999437746",
+                "5497361023195268984795424006241437730065995132300464766979845628249461773621",
+                "1"
+            ],
+            "pi_b": [
+                [
+                    "5531648730765496189299984141013429335176293916624288473027312900574687503695",
+                    "837584405495997022985661350781224077647290664588555614127320131078799912871"
+                ],
+                [
+                    "13710907757682478108066922650482603829363350759876577174904192278597672805633",
+                    "6371344832433353595501841968844132162592422692084819880733485594488528966179"
+                ],
+                [
+                    "1",
+                    "0"
+                ]
+            ],
+            "pi_c": [
+                "12400918088286675926504005672731381714775100590779336212769026192223073829457",
+                "8570106050589180677574221408743302642917811565697447697211740695850645549675",
+                "1"
+            ],
+            "protocol": "groth16",
+            "curve": "bn128"
+        }
+    })
+    proof: any;
+
+    @ApiProperty({
+        description: 'Public signals array (should contain the commitment)',
+        example: ["5360578543298580981610616694364508704365712000716700730584261436538390710233"],
+        type: [String]
+    })
+    publicSignals: string[];
+}

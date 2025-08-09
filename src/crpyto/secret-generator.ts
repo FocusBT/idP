@@ -24,7 +24,6 @@ export async function generateSecret(
   attrs: { email: string; name: string; age: number; country: string; dob: string; }
 ): Promise<{secret: bigint; commitment: bigint; nonce: bigint;}> {
   const { email, name, age, country, dob } = attrs;
-  console.log('Generating secret for:', attrs);
 
   // 1) Make sure we have our poseidon builder
   await ensurePoseidon();
